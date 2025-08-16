@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 
-export default function CompletionPage() {
-  const [prompt, setPrompt] = useState(""); // user input
-  const [completion, setCompletion] = useState(""); // AI response
-  const [isLoading, setIsLoading] = useState(false); // loading flag
-  const [error, setError] = useState<string | null>(null); // error message
+export default function generateText() {
+  const [prompt, setPrompt] = useState(""); // dane wejściowe użytkownika
+  const [completion, setCompletion] = useState(""); // Odpowiedź AI
+  const [isLoading, setIsLoading] = useState(false); // flaga ładowania
+  const [error, setError] = useState<string | null>(null); // komunikat o błędzie
 
   const complete = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ export default function CompletionPage() {
     setError(null);
 
     try {
-      const response = await fetch("/api/completion", {
+      const response = await fetch("/api/generateText", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt }),

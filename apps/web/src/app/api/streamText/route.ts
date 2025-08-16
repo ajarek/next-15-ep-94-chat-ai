@@ -1,0 +1,27 @@
+import { streamText } from "ai";
+import {google} from '@ai-sdk/google'
+
+export async function POST(req: Request) {
+  try {
+    const { prompt } = await req.json();
+
+    const result = streamText({
+       model: google("gemini-2.5-pro"),
+      prompt,
+    });
+
+    // Rejestruj użycie tokena po zakończeniu przesyłania strumieniowego
+    result.usage.then((usage) => {
+      console.log({
+        inputTokens: usage.inputTokens,
+        outputTokens: usage.outputTokens,
+        totalTokens: usage.totalTokens,
+      });
+    });
+
+    return result.toUIMessageStreamResponse();
+  } catch (error) {
+    console.error("Error streaming text:", error);
+    return new Response("Failed to stream text", { status: 500 });
+  }
+}
