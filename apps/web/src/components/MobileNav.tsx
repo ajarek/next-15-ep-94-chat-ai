@@ -20,6 +20,9 @@ const MobileNav = () => {
     { to:"/contact", label: "Contact" },
     { to:"/ui/generateText", label: "Generate Text" },
     { to:"/ui/streamText", label: "Stream Text" },
+    { to:"/ui/multiModalChat", label: "Multi Modal Chat" },
+    { to:"/ui/structuredData", label: "Structured Data" },
+    { to:"/ui/generateImage", label: "Generate Image" },
   ];
   return (
     <Sheet>
