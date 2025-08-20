@@ -1,5 +1,8 @@
 # my-better-t-app
 
+
+<img width="600" height="330" alt="chat-sdk-ai" src="https://github.com/user-attachments/assets/c9946517-8630-4aa9-b1e8-2a8e886aade6" />
+
 This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, and more.
 
 ## Features
