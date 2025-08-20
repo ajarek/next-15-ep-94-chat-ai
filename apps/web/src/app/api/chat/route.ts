@@ -1,20 +1,20 @@
 import { google } from '@ai-sdk/google';
 import { streamText,  convertToModelMessages } from 'ai';
 import type {  UIMessage } from 'ai';
-
+import { perplexity } from '@ai-sdk/perplexity';
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
 
 export async function POST(req: Request) {
   const {
     messages,
-    
+    webSearch,
    
   }: { messages: UIMessage[]; model: string; webSearch: boolean } =
     await req.json();
 
   const result = streamText({
-    model: google("gemini-2.5-pro"),
+    model:webSearch ?  perplexity('sonar-pro') : google("gemini-2.5-pro"),
     messages: convertToModelMessages(messages),
     system:
       'You are a helpful assistant that can answer questions and help with tasks',

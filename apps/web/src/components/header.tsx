@@ -13,7 +13,6 @@ export default function Header() {
     { to:"/ui/streamText", label: "Stream Text" },
     { to:"/ui/multiModalChat", label: "Multi Modal Chat" },
     { to:"/ui/structuredData", label: "Structured Data" },
-    { to:"/ui/generateImage", label: "Generate Image" },
   ];
 
   return (
